@@ -170,7 +170,7 @@ I18N.prototype.i18n = {
         else if (val.hasOwnProperty('default'))
           val = val['default'];
         else
-          console.error("i18n: You need to provide at least a 'default' entry in your lang resources for the conditional property " + input);
+          val = val;
         return this.replaceArgs(val, true, args);
       }
       // String replace if arguments supplied
