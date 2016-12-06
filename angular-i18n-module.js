@@ -151,6 +151,9 @@ I18N.prototype.i18n = {
 
   // Computed local string retrieval method
   I18N.prototype.getString = function (args) {
+    if (typeof args == 'undefined' || args.length <= 0) {
+      return;
+    }
     var input = args[0];
     if (!(args instanceof Object))
       input = args;
@@ -174,7 +177,7 @@ I18N.prototype.i18n = {
         return this.replaceArgs(val, true, args);
       }
       // String replace if arguments supplied
-      return this.$sce.trustAsHtml(this.replaceArgs(val, false, args));
+      return this.replaceArgs(val, false, args);
     }
     else {
       return input;
